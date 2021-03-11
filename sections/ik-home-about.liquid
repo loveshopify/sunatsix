@@ -1,0 +1,34 @@
+{% assign set = section.settings %}
+<div id="ik-homepage-about" class="Index-gallery">
+  <div class="Index-home-about-wrapper">
+    <h2 data-preserve-html-node="true" class="text-align-center hollow-dot">°</h2>
+    <a href="{{ set.link }}">{{ set.title }}</a>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Homepage about",
+  "class": "ik-home-about",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Title"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Homepage About",
+      "category": "custom"
+    }
+  ]
+}
+{% endschema %}

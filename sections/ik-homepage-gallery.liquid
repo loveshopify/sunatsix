@@ -1,0 +1,82 @@
+{% assign set = section.settings %}
+<div id="ik-homepage-gallery" class="Index-gallery">
+  <div class="Index-gallery-wrapper">
+    <div class="gallery_left">
+      <a href="{{ set.item1_link }}" class="item item1">
+        <img src="{{ set.item1_image | img_url: '2000x' }}">
+        {% if set.item1_button %}<button>{{ set.item1_button }}</button>{% endif %}
+      </a>
+    </div>
+    <div class="gallery_right">
+      <a href="{{ set.item2_link }}" class="item item2">
+        <img src="{{ set.item2_image | img_url: '2000x' }}">
+        {% if set.item2_button %}<button>{{ set.item2_button }}</button>{% endif %}
+      </a>
+      <a href="{{ set.item3_link }}" class="item item3">
+        <img src="{{ set.item3_image | img_url: '2000x' }}">
+        {% if set.item3_button %}<button>{{ set.item3_button }}</button>{% endif %}
+      </a>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Homepage Gallery",
+  "class": "ik-gallery",
+  "settings": [
+    {
+      "type": "url",
+      "id": "item1_link",
+      "label": "Item1 link"
+    },
+    {
+      "type": "image_picker",
+      "id": "item1_image",
+      "label": "Item1 button text"
+    },
+    {
+      "type": "text",
+      "id": "item1_button",
+      "label": "Item1 button text"
+    },
+    {
+      "type": "url",
+      "id": "item2_link",
+      "label": "Item2 link"
+    },
+    {
+      "type": "image_picker",
+      "id": "item2_image",
+      "label": "Item2 button text"
+    },
+    {
+      "type": "text",
+      "id": "item2_button",
+      "label": "Item2 button text"
+    },
+    {
+      "type": "url",
+      "id": "item3_link",
+      "label": "Item3 link"
+    },
+    {
+      "type": "image_picker",
+      "id": "item3_image",
+      "label": "Item3 button text"
+    },
+    {
+      "type": "text",
+      "id": "item3_button",
+      "label": "Item3 button text"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Homepage Gallery",
+      "category": "custom"
+    }
+  ]
+}
+{% endschema %}
