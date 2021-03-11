@@ -1,0 +1,105 @@
+@media (max-width: 767px) {
+  .hide--mobile {
+    display: none !important;
+  }
+}
+@media (min-width: 768px) {
+  .hide--desktop {
+    display: none !important;
+  }
+}
+
+// ========================Header custom style==============================
+
+.site-header {
+  .site-header__mobile-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    & > div:first-child,
+    & > #AccessibleNav {
+      flex: 1;
+    }
+    & > div:nth-child(2) {
+      flex: 0;
+    }
+    .site-header__icons-wrapper {
+      justify-content: flex-start;
+    }
+    .site-nav {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .icon-hamburger {
+      width: 24px;
+      height: 18px;
+      line {
+        stroke: #000 !important;
+        stroke-width: 1px;
+      }
+    }
+  }
+  .site-header__logo .logo__image {
+    img {
+      transition: .2s linear all;
+    }
+    &:hover {
+      img {
+        transform: translate(0px,-10px);
+      }
+    }
+  }
+  .site-nav__link,
+  .site-header__icon {
+    font-weight: 500;
+    font-style: normal;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0 0.618em;
+    padding: 0.618em 0;
+  }
+  .site-header__cart {
+    @media (min-width: 768px){
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      #CartCount {
+        position: relative;
+        display: inline-flex;
+        margin-left: 5px;
+        right: unset;
+        top: unset;
+        bottom: unset;
+        background: unset;
+        color: #000;
+        font-size: 17px;
+        font-weight: normal;
+      }
+    }
+    .icon-cart {
+      width: 30px;
+      height: 35px;
+      path {
+        fill: #fff;
+        stroke: #131313;
+        stroke-width: 1px;
+      }
+    }
+    #CartCount {
+      @media (max-width: 767px){
+        position: absolute;
+        bottom: 12px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        line-height: 26px;
+        color: #131313;
+        width: 100%;
+        top: unset;
+        background: unset;
+      }
+    }
+  }
+}
