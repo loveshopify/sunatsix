@@ -1,0 +1,50 @@
+{% assign set = section.settings %}
+<div class="insta-feed-wrap">
+  <div class="Index-wrapper">
+    {% for block in section.blocks %}
+        {% assign bset = block.settings %}
+        <div class="insta_item">
+          {% if bset.image != blank %}
+          <a href="{{ bset.link }}">
+            <img src="{{ bset.image | img_url: '1000x' }}" alt="{{ bset.image.alt }}" class="insta-feed-img">
+          </a>
+          {% endif %}
+        </div> 
+      {% endfor %}
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Instagram feed",
+  "class": "ik-insta-feed",
+  "settings": [
+    
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Instagram feed",
+      "category": "custom"
+    }
+  ]
+}
+{% endschema %}

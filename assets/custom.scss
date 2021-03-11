@@ -139,7 +139,7 @@
     }
     .gallery_left {
       position: relative;
-      @media (max-width: 767px){
+      @media (max-width: 767px) {
         margin-bottom: 5px;
       }
       @media (min-width: 768px) {
@@ -158,7 +158,7 @@
     }
     .item:not(.item2, .item3) {
       @media (min-width: 768px) {
-      display: block;
+        display: block;
         img {
           position: absolute;
           height: 100%;
@@ -166,17 +166,16 @@
           object-fit: cover;
           left: 0;
           top: 0;
-
         }
       }
     }
     .item {
-      @media (min-width: 768px){
+      @media (min-width: 768px) {
         display: block;
         width: 100%;
         height: 100%;
       }
-      @media (max-width: 767px){
+      @media (max-width: 767px) {
         position: relative;
         img {
           object-fit: cover;
@@ -186,7 +185,7 @@
       }
       &.item2,
       &.item3 {
-        @media (min-width: 768px){
+        @media (min-width: 768px) {
           position: relative;
           padding-top: 60%;
           img {
@@ -231,7 +230,7 @@
     font-weight: 400;
     font-style: normal;
     font-size: 36px;
-    letter-spacing: .05em;
+    letter-spacing: 0.05em;
     line-height: 1.4em;
     text-transform: none;
 
@@ -239,14 +238,14 @@
       margin: 0;
       font-size: 30px;
     }
-    @media (max-width: 1200px){
+    @media (max-width: 1200px) {
       width: 70%;
     }
-    @media (max-width: 1000px){
+    @media (max-width: 1000px) {
       padding: 120px 40px;
       width: 80%;
     }
-    @media (max-width: 767px){
+    @media (max-width: 767px) {
       padding: 60px 20px;
       width: 100%;
       font-size: 32px;
@@ -257,4 +256,42 @@
 // =====================Hero section====================
 .hero-section {
   padding: 0;
+}
+
+// ================Instagram feed section===============
+.ik-insta-feed {
+  .Index-wrapper {
+    // display: grid;
+    // grid-template-columns: 1fr 1fr 1fr;
+    display: flow-root;
+    padding: 80px 40px;
+    padding-top: 120px;
+    @media (max-width: 767px){
+      padding: 0 10px;
+      padding-top: 40px;
+    }
+    .insta_item {
+      width: 33.33333333%;
+      float: left;
+      @media (max-width: 767px){
+        width: 50%;
+      }
+      a {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 20px;
+        padding-bottom: 75%;
+        position: relative;
+        display: block;
+        img {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
 }
