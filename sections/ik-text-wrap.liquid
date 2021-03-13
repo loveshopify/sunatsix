@@ -1,0 +1,38 @@
+{% assign set = section.settings %}
+<div class="ik-container about-text-wrap">
+  <div class="Index-wrapper">
+    <div class="text-wrap">
+      <h2 data-preserve-html-node="true" class="text-align-center hollow-dot">°</h2>
+      {% if set.title %}<h2 class="ik-title">{{ set.title }}</h2>{% endif %}
+      {% if set.text %}<div class="ik-content">{{ set.text }}</div>{% endif %}
+    </div>
+    <div class="text-wrap wrap1">
+      <h2 data-preserve-html-node="true" class="text-align-center hollow-dot">°</h2>
+      {% if set.text1 %}<div class="ik-content">{{ set.text1 }}</div>{% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Text section",
+  "class": "ik-about-text",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "richtext",
+      "id": "text1",
+      "label": "Text1"
+    }
+  ]
+}
+{% endschema %}

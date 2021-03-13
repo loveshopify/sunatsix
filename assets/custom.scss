@@ -24,6 +24,27 @@
   padding: 0;
 }
 
+// text dot
+.hollow-dot {
+  margin: 0;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 30px;
+  letter-spacing: 0.05em;
+  line-height: 1.3em;
+  text-transform: none;
+}
+
+.ik-container {
+  max-width: 1700px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 60px 40px;
+  padding-top: 0;
+}
+
 // ========================Header custom style==============================
 
 .site-header {
@@ -83,6 +104,12 @@
     text-transform: uppercase;
     margin: 0 0.618em;
     padding: 0.618em 0;
+    .site-nav__label {
+      border-bottom: 0 !important;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
   }
   .site-header__cart {
     @media (min-width: 768px) {
@@ -92,7 +119,7 @@
       #CartCount {
         position: relative;
         display: inline-flex;
-        margin-left: 5px;
+        margin-left: 3px;
         right: unset;
         top: unset;
         bottom: unset;
@@ -381,9 +408,8 @@
         font-weight: normal;
         letter-spacing: 0.075em;
         margin: 0 0 0 10px;
-        @media (min-width: 768px){
+        @media (min-width: 768px) {
           padding: 1em 2.5em;
-
         }
         transition: 0.2s all;
         &:hover {
@@ -402,6 +428,100 @@
         width: 100%;
         text-align: center;
         padding: 20px 0;
+      }
+    }
+  }
+}
+
+// ===============About Us================
+#about_page {
+  .content-title {
+    font-weight: 500;
+    font-style: normal;
+    font-size: 30px;
+    letter-spacing: 0.05em;
+    line-height: 1.3em;
+    text-transform: none;
+    width: 49.99%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+  #shopify-section-ik-image-with-text {
+    .feature-row {
+      display: flex;
+      align-items: flex-start;
+      .feature-row__item {
+        padding: 17px;
+        &:first-child {
+          padding-left: 0;
+        }
+        &:last-child {
+          padding-right: 0;
+        }
+        .featured-row__subtext {
+          p {
+            font-weight: 500;
+            font-style: normal;
+            font-size: 18px;
+            letter-spacing: 0.05em;
+            line-height: 1.3em;
+            text-transform: none;
+            color: #131313;
+            margin-bottom: 18px;
+          }
+        }
+      }
+    }
+  }
+  .text-wrap {
+    width: 49.99%;
+    margin-right: auto;
+    margin-left: auto;
+    .ik-title {
+      text-align: center;
+      white-space: pre-wrap;
+      font-weight: 500;
+      font-style: normal;
+      font-size: 24px;
+      letter-spacing: 0.05em;
+      line-height: 1.3em;
+      text-transform: none;
+      margin-bottom: 24px;
+    }
+    .ik-content {
+      margin-top: 40px;
+      margin-bottom: 80px;
+      p {
+        white-space: pre-wrap;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 18px;
+        letter-spacing: 0.05em;
+        line-height: 1.3em;
+        text-transform: none;
+        color: #131313;
+        margin-left: 18px;
+        margin-right: 18px;
+      }
+    }
+    &.wrap1 {
+      text-align: center;
+      .ik-content {
+        padding: 0 17px;
+        margin: 0;
+        margin-bottom: 70px;
+      }
+    }
+  }
+  #shopify-section-ik-text-image-wrap {
+    .image-wrap {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      margin-left: -17px;
+      margin-right: -17px;
+      img {
+        padding: 17px;
       }
     }
   }
