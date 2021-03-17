@@ -1,10 +1,11 @@
-<div class="product-template__container page-width"
+<div class="product-template__container ik-container"
   id="ProductSection-{{ section.id }}"
   data-section-id="{{ section.id }}"
   data-section-type="product"
   data-enable-history-state="true"
   data-ajax-enabled="{{ settings.enable_ajax }}"
 >
+{% include 'ik-breadcrumb' %}
   {% comment %}
     Get first variant, or deep linked one
   {% endcomment %}
@@ -34,6 +35,8 @@
       {%- assign height = 1090 -%}
       {%- assign enable_image_zoom = false -%}
   {% endcase %}
+
+  <h1 class="product-single__title hide--desktop">{{ product.title }}</h1>
 
   <div class="grid product-single{% if section.settings.enable_payment_button %} product-single--{{ section.settings.media_size }}-media{% endif %}">
     <div class="grid__item product-single__media-group {{ product_media_width }}{% if section.settings.media_size == 'full' %} product-single__media-group--full{% endif %}" data-product-single-media-group>
@@ -134,11 +137,15 @@
     <div class="grid__item {{ product_description_width }}">
       <div class="product-single__meta">
 
-        <h1 class="product-single__title">{{ product.title }}</h1>
+        <h1 class="product-single__title hide--mobile">{{ product.title }}</h1>
         <script>window.performance.mark('debut:product:title_visible');</script>
 
           <div class="product__price">
             {% include 'product-price', variant: current_variant, show_vendor: section.settings.show_vendor %}
+          </div>
+
+          <div class="product-single__description rte">
+            {{ product.description }}
           </div>
 
           {%- if cart.taxes_included or shop.shipping_policy.body != blank -%}
@@ -229,7 +236,10 @@
                     {% endunless %}
                   </span>
                   <span class="hide" data-loader>
+                    Adding...
                     {% include 'icon-spinner' %}
+                    {%- comment -%}
+                    {%- endcomment -%}
                   </span>
                 </button>
                 {% if section.settings.enable_payment_button %}
@@ -265,10 +275,6 @@
           data-has-only-default-variant="{{ product.has_only_default_variant }}"
           data-base-url="{{ shop.url }}{{ routes.root_url }}"
         >
-        </div>
-
-        <div class="product-single__description rte">
-          {{ product.description }}
         </div>
 
         {% if section.settings.show_share_buttons %}

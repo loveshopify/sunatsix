@@ -1,14 +1,16 @@
 <div class="section-header text-center">
-  <h1 class="article__title" id="title-0">{{ article.title }}</h1>
   {% if section.settings.blog_show_author %}
-    <span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
+    <span class="article__author" style="margin-right: 0;">{{ article.author }}</span>
   {% endif %}
+  <span style="margin: 0 .5em;">-</span>
 
   {% if section.settings.blog_show_date %}
     <span class="article__date">
       {{ article.published_at | time_tag: format: 'date' }}
     </span>
   {% endif %}
+  <h1 class="article__title" id="title-0">{{ article.title }}</h1>
+
 </div>
 
 <div class="rte">

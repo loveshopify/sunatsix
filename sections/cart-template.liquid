@@ -1,11 +1,13 @@
-<div class="page-width" data-section-id="{{ section.id }}" data-section-type="cart-template" data-ajax-enabled="{{ section.settings.cart_ajax_enable }}">
+<div class="ik-container" data-section-id="{{ section.id }}" data-section-type="cart-template" data-ajax-enabled="{{ section.settings.cart_ajax_enable }}">
 
   <div {% if cart.item_count == 0 %}class="hide" {% endif %}data-cart-wrapper>
     <div class="cart-header">
       <h1 class="cart-header__title">{{ 'cart.general.title' | t }}</h1>
-      <a href="{{ routes.all_products_collection_url }}" class="text-link text-link--accent">
-        {{ 'cart.general.continue_shopping' | t }}
-      </a>
+      {%- comment -%}
+        <a href="{{ routes.all_products_collection_url }}" class="text-link text-link--accent">
+          {{ 'cart.general.continue_shopping' | t }}
+        </a>
+      {%- endcomment -%}
     </div>
 
     <form action="{{ routes.cart_url }}" method="post" novalidate class="cart">
@@ -273,7 +275,9 @@
                 {{ 'cart.general.taxes_and_shipping_at_checkout' | t }}
               {%- endif -%}
             {%- endcapture -%}
+            {%- comment -%}
             <div class="cart__shipping rte">{{ taxes_shipping_checkout }}</div>
+            {%- endcomment -%}
             <div class="cart__buttons-container">
               <div class="cart__submit-controls">
                 {%- unless section.settings.cart_ajax_enable -%}

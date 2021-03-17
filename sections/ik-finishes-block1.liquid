@@ -1,14 +1,17 @@
 {% assign set = section.settings %}
-<div class="insta-feed-wrap">
+<div class="ik-finishes-block-wrap">
+  <div class="title-wrap">
+    {% if set.title %}<h2 class="ik-title">{{ set.title }}</h2>{% endif %}
+    {% if set.text %}<div class="ik-content">{{ set.text }}</div>{% endif %}
+  </div>
   <div class="Index-wrapper">
     {% for block in section.blocks %}
         {% assign bset = block.settings %}
-        <div class="insta_item">
-          {% if bset.image != blank %}
-          <a href="{{ bset.link }}">
-            <img src="{{ bset.image | img_url: '1000x' }}" alt="{{ bset.image.alt }}" class="insta-feed-img">
-          </a>
-          {% endif %}
+        <div class="img_item">
+          <div class="img_div">
+            <img src="{{ bset.image | img_url: '1000x' }}" alt="{{ bset.image.alt }}">
+          </div>
+          <div class="item-title">{{ bset.item_title }}</div>
         </div> 
       {% endfor %}
   </div>
@@ -17,8 +20,8 @@
 
 {% schema %}
 {
-  "name": "Instagram feed",
-  "class": "ik-insta-feed",
+  "name": "Image block",
+  "class": "ik-finished-block",
   "settings": [
     {
       "type": "text",
@@ -37,22 +40,16 @@
       "name": "Item",
       "settings": [
         {
+          "type": "text",
+          "id": "item_title",
+          "label": "Title"
+        },
+        {
           "type": "image_picker",
           "id": "image",
           "label": "Image"
-        },
-        {
-          "type": "url",
-          "id": "link",
-          "label": "Link"
         }
       ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Instagram feed",
-      "category": "custom"
     }
   ]
 }

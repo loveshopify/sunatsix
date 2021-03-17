@@ -48,7 +48,7 @@
     {% endif %}
   {% endif %}
 
-  <header class="site-header{% if section.settings.align_logo == 'left' %} border-bottom logo--left{% else %} logo--center{% endif %}" role="banner">
+  <header class="site-header{% if section.settings.align_logo == 'left' %} border-bottom logo--left{% else %} logo--center{% endif %} ik-container" role="banner">
     <div class="site-header__mobile-nav">
       <div class="">
         <div class="site-header__icons-wrapper">
@@ -73,7 +73,9 @@
           <a href="{{ routes.cart_url }}" class="site-header__icon site-header__cart hide--mobile">
             <span class="">{{ 'layout.cart.title' | t }}</span>
             <div id="CartCount" class="site-header__cart-count critical-hidden" data-cart-count-bubble>
-              <span data-cart-count>({{ cart.item_count }})</span>
+              <span>(</span>
+              <span data-cart-count>{{ cart.item_count }}</span>
+              <span>)</span>
             </div>
           </a>
 
@@ -131,7 +133,7 @@
 
     <nav class="mobile-nav-wrapper medium-up--hide critical-hidden" role="navigation">
       <ul id="MobileNav" class="mobile-nav">
-        {% for link in linklists[section.settings.main_linklist].links %}
+        {% for link in linklists[section.settings.main_linklist_mob].links %}
           {%- assign outerLoopIndex = forloop.index -%}
 
           <li class="mobile-nav__item{% unless forloop.last %} border-bottom{% endunless %}">
@@ -439,6 +441,34 @@
     {
       "type": "link_list",
       "id": "main_linklist",
+      "label": {
+        "cs": "Nabídka",
+        "da": "Menu",
+        "de": "Menü",
+        "en": "Menu",
+        "es": "Menú",
+        "fi": "Valikko",
+        "fr": "Menu",
+        "it": "Menu",
+        "ja": "メニュー",
+        "ko": "메뉴",
+        "nb": "Meny",
+        "nl": "Menu",
+        "pl": "Menu",
+        "pt-BR": "Menu",
+        "pt-PT": "Menu",
+        "sv": "Meny",
+        "th": "เมนู",
+        "tr": "Menü",
+        "vi": "Menu",
+        "zh-CN": "菜单",
+        "zh-TW": "選單"
+      },
+      "default": "main-menu"
+    },
+    {
+      "type": "link_list",
+      "id": "main_linklist_mob",
       "label": {
         "cs": "Nabídka",
         "da": "Menu",

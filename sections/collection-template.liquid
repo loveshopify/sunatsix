@@ -17,7 +17,19 @@
 
 {% paginate collection.products by limit %}
 
-<div data-section-id="{{ section.id }}" data-section-type="collection-template">
+<div data-section-id="{{ section.id }}" data-section-type="collection-template" class="ik-container">
+  <div class="side_bar">
+    <div class="side_bar_button hide--desktop">Category
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18px" height="18px" id="Layer_1" style="enable-background:new 0 0 512 512;width: 18px;height: 18px;" version="1.1" viewBox="0 0 512 512" width="512px" xml:space="preserve"><polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 "></polygon></svg>
+    </div>
+    <ul>
+      <a href="/collectoins/all">All</a>
+      {%- for collection in collections -%}
+        <a href="{{ collection.link }}">{{ collection.title }}</a>
+      {%- endfor -%}
+    </ul>
+  </div>
+  {%- comment -%}
   <header class="collection-header">
     {%- assign is_filter_by_available = false -%}
     {%- if section.settings.tags_enable and collection.all_tags.size > 0 -%}
@@ -123,8 +135,9 @@
       </div>
     {% endif %}
   </header>
+  {%- endcomment -%}
 
-  <div class="page-width" id="Collection">
+  <div class="" id="Collection">
     {% if section.settings.layout == 'grid' %}
       {% case section.settings.grid %}
       {% when 2 %}

@@ -1,5 +1,6 @@
 {% paginate blog.articles by 12 %}
 
+{%- comment -%}
 <div class="page-width">
   <header class="section-header text-center">
     <h1>{{ page_title }}</h1>
@@ -19,10 +20,11 @@
     {% endif %}
   </header>
 </div>
+{%- endcomment -%}
 
 
 {% if section.settings.layout == 'grid' %}
-  <div class="page-width">
+  <div class="ik-container">
     <ul class="grid grid--uniform grid--blog">
       {% for article in blog.articles %}
         <li class="grid__item medium-up--one-third">
@@ -51,22 +53,26 @@
               </noscript>
             {% endif %}
 
+          </a>
+          
+          <div class="article__grid-meta{% if article.image %} article__grid-meta--has-image{% endif %}">
+            {% if section.settings.blog_show_author %}
+            {%- comment -%}
+            <span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
+            {%- endcomment -%}  
+            <span class="article__author" style="margin-right: 0;">{{ article.author }}</span>
+            {% endif %}
+            <span style="margin: 0 .5em;">-</span>
+            {% if section.settings.blog_show_date %}
+            <span class="article__date">
+              {{ article.published_at | time_tag: format: 'date' }}
+            </span>
+            {% endif %}
+            
             <h2 class="article__title h3{% if article.image %} article__title--has-image{% endif %}">
               {{ article.title | escape }}
             </h2>
-          </a>
-
-          <div class="article__grid-meta{% if article.image %} article__grid-meta--has-image{% endif %}">
-            {% if section.settings.blog_show_author %}
-              <span class="article__author">{{ 'blogs.article.by_author' | t: author: article.author }}</span>
-            {% endif %}
-
-            {% if section.settings.blog_show_date %}
-              <span class="article__date">
-                {{ article.published_at | time_tag: format: 'date' }}
-              </span>
-            {% endif %}
-
+            {%- comment -%}
             <div class="rte article__grid-excerpt">
               {% if article.excerpt.size > 0 %}
                 {{ article.excerpt }}
@@ -74,6 +80,7 @@
                 {{ article.content | strip_html | truncate: 150 }}
               {% endif %}
             </div>
+            {%- endcomment -%}
 
             {% if article.tags.size > 0 %}
               <div class="article__tags rte">
@@ -87,21 +94,23 @@
               </div>
             {% endif %}
 
-            <ul class="list--inline article__meta-buttons">
-              <li>
-                <a href="{{ article.url }}" class="btn btn--tertiary btn--small" aria-label="{{ 'blogs.article.read_more_title' | t: title: article.title }}">
-                  {{ 'blogs.article.read_more' | t }}
-                </a>
-              </li>
-
-              {% if blog.comments_enabled? and article.comments_count > 0 %}
+            {%- comment -%}
+              <ul class="list--inline article__meta-buttons">
                 <li>
-                  <a href="{{ article.url }}#comments" class="article__comment-count btn btn--tertiary btn--small">
-                    {{ 'blogs.comments.comments_with_count' | t: count: article.comments_count }}
+                  <a href="{{ article.url }}" class="btn btn--tertiary btn--small" aria-label="{{ 'blogs.article.read_more_title' | t: title: article.title }}">
+                    {{ 'blogs.article.read_more' | t }}
                   </a>
                 </li>
-              {% endif %}
-            </ul>
+
+                {% if blog.comments_enabled? and article.comments_count > 0 %}
+                  <li>
+                    <a href="{{ article.url }}#comments" class="article__comment-count btn btn--tertiary btn--small">
+                      {{ 'blogs.comments.comments_with_count' | t: count: article.comments_count }}
+                    </a>
+                  </li>
+                {% endif %}
+              </ul>
+            {%- endcomment -%}
           </div>
         </li>
       {% endfor %}

@@ -1,0 +1,29 @@
+{% assign set = section.settings %}
+<div class="ik-container">
+  <div class="Index-wrapper">
+    <div class="image-wrap {% if set.is_width %}width_100{% endif %}">
+      {% if set.image %}<img src="{{ set.image | img_url: '1000x' }}" alt="{{ set.image.alt }}" class="img-item">{% endif %}
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Image section",
+  "class": "ik-image",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "is_width",
+      "label": "width 100%",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ]
+}
+{% endschema %}

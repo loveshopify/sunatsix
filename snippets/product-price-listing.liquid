@@ -75,6 +75,7 @@
         {%- endif -%}
       </span>
     </dd>
+    {%- comment -%}
     <div class="price__compare">
       <dt>
         <span class="visually-hidden visually-hidden--inline">{{ 'products.product.regular_price' | t }}</span>
@@ -85,6 +86,7 @@
         </s>
       </dd>
     </div>
+    {%- endcomment -%}
   </div>
   <div class="price__unit">
     <dt>
@@ -112,8 +114,10 @@
     <span class="price__badge price__badge--sale" aria-hidden="true">
       <span>{{ 'products.product.on_sale' | t }}</span>
     </span>
+    {%- comment -%}
     <span class="price__badge price__badge--sold-out">
       <span>{{ 'products.product.sold_out' | t }}</span>
     </span>
+    {%- endcomment -%}
   </div>
 </dl>

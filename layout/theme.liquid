@@ -73,6 +73,8 @@
       link.dispatchEvent(new Event('load'));
     }
   </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  {{ 'custom.js' | asset_url | script_tag }}
 
   <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}" type="text/css" media="print" onload="this.media='all';onLoadStylesheet()">
   {{ 'custom.scss.css' | asset_url | stylesheet_tag }}
