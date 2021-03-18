@@ -1,14 +1,14 @@
+// =============Font import==============
 @font-face {
-  font-family: "Freight";
-  src: url('{{ "FreightSansProBook-Regular.woff2" | asset_url }}') format("woff2"),
-    url('{{ "FreightSansProBook-Regular.woff" | asset_url }}') format("woff"),
-    url('{{ "FreightSansProBook-Regular.ttf" | asset_url }}') format("truetype");
+  font-family: 'Freight';
+  src:  url('./Freight-Sans-book.otf') format("opentype"),
+    	url('./Freight-Sans-Medium.otf') format('opentype');
 }
 
 * {
-  // font-family: "Freight" !important;
+  font-family:'Freight' !important;
 }
-
+// ===========End font import=============
 @media (max-width: 767px) {
   .hide--mobile {
     display: none !important;
@@ -104,7 +104,7 @@
       height: 18px;
       line {
         stroke: #000 !important;
-        stroke-width: 1px;
+        stroke-width: 1.2px;
       }
     }
   }
@@ -1244,6 +1244,61 @@
       text-transform: uppercase;
       line-height: 1em;
       color: rgba(29, 29, 29, 0.7) !important;
+    }
+  }
+}
+
+// ================Mobile Menu=================
+.mobile-nav-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  display: block;
+  transform: translate(100%, 0);
+  display: flex;
+  &.is--active {
+    transform: translate(0, 0);
+  }
+  .mobile-menu-close {
+    width: 70px;
+    height: 60px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: unset;
+    border: unset;
+    #close-icon {
+      width: 16px;
+      height: 16px;
+      line {
+        stroke: #131313;
+      }
+    }
+  }
+  #MobileNav {
+    width: 100%;
+    padding-top: 80px;
+    .mobile-nav__item {
+      border: unset;
+      a {
+        padding: 0;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 30px;
+        letter-spacing: .05em;
+        line-height: 1.3em;
+        text-transform: none;
+        color: #131313;
+        margin-bottom: .618em;
+        span {
+          border: unset;
+        }
+      }
     }
   }
 }
